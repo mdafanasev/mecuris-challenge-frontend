@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import {CatalogItem} from '../catalog.model';
+import { CatalogItem } from '../catalog.model';
 
 @Component({
   selector: 'mc-catalog-item',

@@ -14,7 +14,7 @@ export class EntryService {
         name: resp.name,
         createdAt: new Date(resp.createdAt),
         updatedAt: new Date(resp.updatedAt),
-      }))
+      })),
     );
   }
 }
