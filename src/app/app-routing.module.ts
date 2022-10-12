@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'catalog',
+    loadChildren: () =>
+      import('./catalog/catalog.module').then((m) => m.CatalogModule),
+  },
+  {
+    path: 'catalog/:entryId',
+    loadChildren: () =>
+      import('./entry/entry.module').then((m) => m.EntryModule),
+  },
+  { path: '**', redirectTo: '/catalog' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,9 @@
+<ng-container *ngIf="items | async as items; else loading">
+  <div *ngFor="let item of items">
+    <mc-catalog-item [itemData]="item"></mc-catalog-item>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  <div>Loading data...</div>
+</ng-template>
