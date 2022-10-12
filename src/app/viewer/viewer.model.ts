@@ -1,7 +1,5 @@
-import { Object3D } from 'three';
-
 export interface Viewer3DObject {
-  object: Object3D;
+  objectUrl: string;
 }
 
 export interface Size {

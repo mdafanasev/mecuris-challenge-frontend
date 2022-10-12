@@ -17,4 +17,5 @@ export class CatalogService {
 interface CatalogItemHttpResponse {
   id: number;
   name: string;
+  previewUrl: string;
 }

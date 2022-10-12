@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-const DEFAULT_API_URL = 'http://localhost:3000'
+const DEFAULT_API_URL = 'http://localhost:3000';
+const DEFAULT_STATIC_URL = 'http://localhost:3000/static';
 
 const config = {
   '/api': {
@@ -8,6 +9,13 @@ const config = {
     secure: false,
     pathRewrite: {
       '^/api': '',
+    },
+  },
+  '/static': {
+    target: process.env['MECURIS_STATIC_URL'] || DEFAULT_STATIC_URL,
+    secure: false,
+    pathRewrite: {
+      '^/static': '',
     },
   },
 };

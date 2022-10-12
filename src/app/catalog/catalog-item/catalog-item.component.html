@@ -1,3 +1,6 @@
 <ng-container *ngIf="itemData as item">
-  <a [routerLink]="[item.id]">{{ item.name }}</a>
+  <a [routerLink]="[item.id]">
+    <span>{{ item.name }}</span>
+    <img [src]="item.previewUrl" [alt]="item.name" />
+  </a>
 </ng-container>

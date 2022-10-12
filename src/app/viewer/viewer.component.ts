@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Object3D } from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { CameraService } from './camera.service';
 import { LightingService } from './lighting.service';
 import { RendererService } from './renderer.service';
@@ -22,7 +24,7 @@ import { Viewer3DObject } from './viewer.model';
 export class ViewerComponent {
   @Input() set object(object: Viewer3DObject | null) {
     if (object) {
-      this.scene.setObject(object);
+      this.loadObject(object.objectUrl);
     }
   }
 
@@ -32,5 +34,16 @@ export class ViewerComponent {
   ) {
     this.scene.init();
     this.renderer.init();
+  }
+
+  private loadObject(objectUrl: string): void {
+    const loader = new GLTFLoader();
+    loader.load(objectUrl, (gltf) => {
+      this.showObject(gltf.scene);
+    });
+  }
+
+  private showObject(object: Object3D) {
+    this.scene.setObject(object);
   }
 }

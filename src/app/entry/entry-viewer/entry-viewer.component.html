@@ -1,0 +1,8 @@
+<ng-container *ngIf="entryData as entry">
+  <p>{{ entry.name }}</p>
+  <p>{{ entry.createdAt | date }}</p>
+  <p>{{ entry.updatedAt | date }}</p>
+  <div class="viewer">
+    <mc-viewer [object]="object"></mc-viewer>
+  </div>
+</ng-container>

@@ -45,21 +45,13 @@ Default port is 4200, so the application will be available in [http://localhost:
 
 ## Proxy to back-end
 
-By default the dev server will proxy `/api` requests to `http://localhost:3000`.
-You can customize target URL and secure parameter through environment variables `MECURIS_API_URL`:
-
-```bash
-MECURIS_API_URL=http://api.mydevserver.com npm start
-```
-
-To persist this customization for your local environment you can create `.env` file in the root of the project 
+By default the dev server will proxy `/api` and `/static` requests to `http://localhost:3000` and  `http://localhost:3000/static`.
+You can customize target URLs through environment variables `MECURIS_API_URL` and `MECURIS_STATIC_URL` and persist in the `.env` file
 (see `.env.example` for the example):
 
 ```
 MECURIS_API_URL=http://localhost:3000
+MECURIS_STATIC_URL=http://localhost:3000/static
 ```
 
 See `src/proxy.conf.js` for details
-
-
-

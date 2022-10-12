@@ -12,6 +12,8 @@ export class EntryService {
       map((resp) => ({
         id: resp.id,
         name: resp.name,
+        modelUrl: resp.modelUrl,
+        previewUrl: resp.previewUrl,
         createdAt: new Date(resp.createdAt),
         updatedAt: new Date(resp.updatedAt),
       })),
@@ -22,6 +24,8 @@ export class EntryService {
 interface EntryHttpResponse {
   id: number;
   name: string;
+  modelUrl: string;
+  previewUrl: string;
   createdAt: string;
   updatedAt: string;
 }

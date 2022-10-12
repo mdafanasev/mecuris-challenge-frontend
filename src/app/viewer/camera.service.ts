@@ -8,7 +8,7 @@ const FOV = 50;
 const ASPECT = 1;
 const NEAR = 1;
 const FAR = 1000;
-const INITIAL_POSITION: [number, number, number] = [1, 1, 3];
+const INITIAL_POSITION: [number, number, number] = [5, 5, 12];
 const CENTER = new Vector3(0, 0, 0);
 
 @Injectable()

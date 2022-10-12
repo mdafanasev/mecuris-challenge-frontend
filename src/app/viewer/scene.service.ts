@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Object3D, Scene } from 'three';
 import { CameraService } from './camera.service';
 import { LightingService } from './lighting.service';
-import { Viewer3DObject } from './viewer.model';
 
 @Injectable()
 export class SceneService {
@@ -20,11 +19,11 @@ export class SceneService {
     this.scene.add(this.camera.camera);
   }
 
-  setObject(newObject: Viewer3DObject): void {
+  setObject(newObject: Object3D): void {
     if (this.object) {
       this.scene.remove(this.object);
     }
-    this.scene.add(newObject.object);
-    this.object = newObject.object;
+    this.scene.add(newObject);
+    this.object = newObject;
   }
 }
