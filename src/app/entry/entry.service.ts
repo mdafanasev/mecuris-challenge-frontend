@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { AttributeType } from './attribute.model';
+import { EntryHttpResponse } from './entry.dto';
 import { Entry } from './entry.model';
 
 @Injectable({ providedIn: 'root' })
@@ -25,6 +26,10 @@ export class EntryService {
     );
   }
 
+  removeEntry(entryId: number): Observable<void> {
+    return this.http.delete<void>(`/api/items/${entryId}`);
+  }
+
   private mapRespToEntry(resp: EntryHttpResponse): Entry {
     return {
       id: resp.id,
@@ -44,22 +49,4 @@ export class EntryService {
       })),
     };
   }
-}
-
-interface EntryHttpResponse {
-  id: number;
-  name: string;
-  modelUrl: string;
-  previewUrl: string;
-  createdAt: string;
-  updatedAt: string;
-  attributes: {
-    id: number;
-    type: string;
-    name: string;
-    hint: string;
-    target: string;
-    value: string;
-    updatedAt: string;
-  }[];
 }

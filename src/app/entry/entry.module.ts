@@ -9,7 +9,12 @@ import { EntryCustomizerComponent } from './entry-customizer/entry-customizer.co
 import { EntryAttributeComponent } from './entry-attribute/entry-attribute.component';
 
 @NgModule({
-  declarations: [EntryPageComponent, EntryViewerComponent, EntryCustomizerComponent, EntryAttributeComponent],
+  declarations: [
+    EntryPageComponent,
+    EntryViewerComponent,
+    EntryCustomizerComponent,
+    EntryAttributeComponent,
+  ],
   imports: [CommonModule, EntryRoutingModule, ViewerModule],
 })
 export class EntryModule {}

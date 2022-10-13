@@ -1,4 +1,7 @@
 <ng-container *ngIf="items | async as items; else loading">
+  <div>
+    <button (click)="restoreAll()">Restore all items</button>
+  </div>
   <div *ngFor="let item of items">
     <mc-catalog-item [itemData]="item"></mc-catalog-item>
   </div>

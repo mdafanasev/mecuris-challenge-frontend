@@ -1,4 +1,7 @@
 <ng-container *ngIf="entry | async as entry">
   <mc-entry-viewer [entry]="entry"></mc-entry-viewer>
-  <mc-entry-customizer [entry]="entry"></mc-entry-customizer>
+  <mc-entry-customizer
+    [entry]="entry"
+    (remove)="redirectToCatalog()"
+  ></mc-entry-customizer>
 </ng-container>

@@ -12,6 +12,10 @@ export class CatalogService {
   getItems(): Observable<CatalogItem[]> {
     return this.http.get<CatalogItemHttpResponse[]>(`/api/items/`);
   }
+
+  restoreAll(): Observable<void> {
+    return this.http.post<void>(`/api/items/restore-all`, {});
+  }
 }
 
 interface CatalogItemHttpResponse {
