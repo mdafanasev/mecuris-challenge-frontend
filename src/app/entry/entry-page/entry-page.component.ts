@@ -13,7 +13,7 @@ import { EntryService } from '../entry.service';
   providers: [CustomizationService],
 })
 export class EntryPageComponent {
-  entry: Observable<Entry> = this.route.data.pipe(map((data) => data['entry']));
+  entry$: Observable<Entry> = this.route.data.pipe(map((data) => data['entry']));
 
   private destroy = new Subject<void>();
 
@@ -28,15 +28,14 @@ export class EntryPageComponent {
     this.destroy.complete();
   }
 
-  removeEntry(entryId: number) {
-    if (!this.entry) return;
+  removeEntry(entryId: number): void {
     this.entryService
       .removeEntry(entryId)
       .pipe(takeUntil(this.destroy))
       .subscribe(() => this.redirectToCatalog());
   }
 
-  redirectToCatalog(): void {
+  private redirectToCatalog(): void {
     this.router.navigateByUrl('');
   }
 }

@@ -1,4 +1,4 @@
-export type AttributeType = 'color' | 'visible';
+import { AttributeType } from '../viewer/viewer.model';
 
 export interface Attribute {
   id: number;

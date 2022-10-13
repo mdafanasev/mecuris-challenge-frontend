@@ -56,24 +56,23 @@ export class ViewerComponent implements OnChanges {
   }
 
   private loadObject(): void {
+    if (!this.object) return;
+
     const loader = new GLTFLoader();
-    if (!this.object) {
-      return;
-    }
     loader.load(this.object.objectUrl, (gltf) => {
       this.model = gltf.scene;
       this.showModel();
     });
   }
 
-  private showModel() {
+  private showModel(): void {
     if (this.model) {
       this.scene.setObject(this.model);
       this.applyCustomizations();
     }
   }
 
-  private applyCustomizations() {
+  private applyCustomizations(): void {
     for (let customization of this.customizations) {
       this.applyCustomization(customization);
     }
@@ -91,14 +90,14 @@ export class ViewerComponent implements OnChanges {
     }
   }
 
-  private applyColor(target: Mesh, customization: Customization) {
+  private applyColor(target: Mesh, customization: Customization): void {
     const newMaterial = new MeshStandardMaterial({
       color: customization.value,
     });
     target.material = newMaterial;
   }
 
-  private applyVisibility(target: Mesh, customization: Customization) {
+  private applyVisibility(target: Mesh, customization: Customization): void {
     if (customization.value === 'false') {
       target.visible = false;
     } else {

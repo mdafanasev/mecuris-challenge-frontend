@@ -4,7 +4,8 @@ import {
   Component,
   OnDestroy,
 } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { CatalogItem } from '../catalog.model';
 import { CatalogService } from '../catalog.service';
 
 @Component({
@@ -14,13 +15,13 @@ import { CatalogService } from '../catalog.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogPageComponent implements OnDestroy {
-  items = this.catalogService.getItems();
+  items$: Observable<CatalogItem[]> = this.catalogService.getItems();
 
   private destroy = new Subject<void>();
 
   constructor(
     private readonly catalogService: CatalogService,
-    private readonly cdr: ChangeDetectorRef,
+    private readonly changeDetectorRef: ChangeDetectorRef,
   ) {}
 
   ngOnDestroy(): void {
@@ -36,7 +37,7 @@ export class CatalogPageComponent implements OnDestroy {
   }
 
   private reloadItems(): void {
-    this.items = this.catalogService.getItems();
-    this.cdr.markForCheck();
+    this.items$ = this.catalogService.getItems();
+    this.changeDetectorRef.markForCheck();
   }
 }

@@ -22,8 +22,6 @@ import { EntryService } from '../entry.service';
 export class EntryCustomizerComponent implements OnChanges, OnDestroy {
   @Input() entry: Entry | null = null;
 
-  @Output() remove = new EventEmitter<void>();
-
   private destroy = new Subject<void>();
 
   constructor(
@@ -34,7 +32,7 @@ export class EntryCustomizerComponent implements OnChanges, OnDestroy {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['entry']) {
       const attributes = changes['entry'].currentValue.attributes;
-      this.customizationService.initialize(attributes);
+      this.customizationService.setAttributes(attributes);
     }
   }
 
@@ -43,7 +41,7 @@ export class EntryCustomizerComponent implements OnChanges, OnDestroy {
     this.destroy.complete();
   }
 
-  updateAttribute(attributeId: number, newValue: string) {
+  updateAttribute(attributeId: number, newValue: string): void {
     if (!this.entry) return;
     this.customizationService.updateAttribute(attributeId, newValue);
     this.entryService

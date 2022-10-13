@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { AttributeType } from './attribute.model';
+import { AttributeType } from '../viewer/viewer.model';
 import { EntryHttpResponse } from './entry.dto';
 import { Entry } from './entry.model';
 
@@ -12,7 +12,7 @@ export class EntryService {
   getEntry(entryId: number): Observable<Entry> {
     return this.http
       .get<EntryHttpResponse>(`/api/items/${entryId}`)
-      .pipe(map((resp) => this.mapRespToEntry(resp)));
+      .pipe(map((resp) => this.mapResponseToEntry(resp)));
   }
 
   updateAttribute(
@@ -30,7 +30,7 @@ export class EntryService {
     return this.http.delete<void>(`/api/items/${entryId}`);
   }
 
-  private mapRespToEntry(resp: EntryHttpResponse): Entry {
+  private mapResponseToEntry(resp: EntryHttpResponse): Entry {
     return {
       id: resp.id,
       name: resp.name,

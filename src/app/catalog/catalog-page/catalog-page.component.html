@@ -2,7 +2,7 @@
   <h1 class="title">Catalog</h1>
 </div>
 
-<ng-container *ngIf="items | async as items; else loading">
+<ng-container *ngIf="items$ | async as items; else loading">
   <div class="controls">
     <div>Total: {{ items.length }}</div>
     <button class="restore-button" (click)="restoreAll()">
@@ -12,7 +12,7 @@
 
   <div class="catalog">
     <div *ngFor="let item of items" class="item">
-      <mc-catalog-item [itemData]="item"></mc-catalog-item>
+      <mc-catalog-item [item]="item"></mc-catalog-item>
     </div>
   </div>
 </ng-container>

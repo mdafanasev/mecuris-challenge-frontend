@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Attribute } from './attribute.model';
 
 @Injectable()
 export class CustomizationService {
   private readonly state = new BehaviorSubject<Attribute[]>([]);
 
-  attributes = this.state.asObservable();
+  get attributes(): Observable<Attribute[]> {
+    return this.state.asObservable();
+  }
 
-  initialize(attributes: Attribute[]): void {
+  setAttributes(attributes: Attribute[]): void {
     this.state.next(attributes);
   }
 

@@ -8,5 +8,5 @@ import { CatalogItem } from '../catalog.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogItemComponent {
-  @Input() itemData: CatalogItem | null = null;
+  @Input() item: CatalogItem | null = null;
 }

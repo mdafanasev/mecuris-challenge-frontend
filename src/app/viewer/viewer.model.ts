@@ -3,7 +3,7 @@ export interface Viewer3DObject {
 }
 
 export interface Customization {
-  type: 'color' | 'visible';
+  type: AttributeType;
   target: string;
   value: string;
 }
@@ -12,3 +12,5 @@ export interface Size {
   width: number;
   height: number;
 }
+
+export type AttributeType = 'color' | 'visible';
