@@ -1,4 +1,4 @@
 <ng-container *ngIf="entry | async as entry">
-  <mc-entry-viewer [entryData]="entry"></mc-entry-viewer>
-  <mc-entry-customizer [attributes]="entry.attributes"></mc-entry-customizer>
+  <mc-entry-viewer [entry]="entry"></mc-entry-viewer>
+  <mc-entry-customizer [entry]="entry"></mc-entry-customizer>
 </ng-container>

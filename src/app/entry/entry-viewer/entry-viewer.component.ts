@@ -12,17 +12,17 @@ import { Entry } from '../entry.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EntryViewerComponent {
-  @Input() entryData: Entry | null = null;
+  @Input() entry: Entry | null = null;
 
   customizations = this.customizationService.attributes.pipe(
     map((attributes) => this.mapAttributesToCustomizations(attributes)),
   );
 
   get object(): Viewer3DObject | null {
-    if (!this.entryData) {
+    if (!this.entry) {
       return null;
     }
-    return { objectUrl: this.entryData.modelUrl };
+    return { objectUrl: this.entry.modelUrl };
   }
 
   constructor(private readonly customizationService: CustomizationService) {}

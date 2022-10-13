@@ -1,5 +1,7 @@
-<mc-entry-attribute
-  *ngFor="let attr of attributes"
-  [attribute]="attr"
-  (update)="updateAttribute(attr.id, $event)"
-></mc-entry-attribute>
+<ng-container *ngIf="entry">
+  <mc-entry-attribute
+    *ngFor="let attr of entry.attributes"
+    [attribute]="attr"
+    (update)="updateAttribute(attr.id, $event)"
+  ></mc-entry-attribute>
+</ng-container>

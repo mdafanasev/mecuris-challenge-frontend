@@ -14,6 +14,17 @@ export class EntryService {
       .pipe(map((resp) => this.mapRespToEntry(resp)));
   }
 
+  updateAttribute(
+    entryId: number,
+    attributeId: number,
+    newValue: string,
+  ): Observable<void> {
+    return this.http.patch<void>(
+      `/api/items/${entryId}/attributes/${attributeId}`,
+      { value: newValue },
+    );
+  }
+
   private mapRespToEntry(resp: EntryHttpResponse): Entry {
     return {
       id: resp.id,

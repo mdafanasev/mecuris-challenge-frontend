@@ -5,8 +5,9 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { Attribute } from '../attribute.model';
 import { CustomizationService } from '../customization.service';
+import { Entry } from '../entry.model';
+import { EntryService } from '../entry.service';
 
 @Component({
   selector: 'mc-entry-customizer',
@@ -15,17 +16,25 @@ import { CustomizationService } from '../customization.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EntryCustomizerComponent implements OnChanges {
-  @Input() attributes: Attribute[] = [];
+  @Input() entry: Entry | null = null;
 
-  constructor(private readonly customizationService: CustomizationService) {}
+  constructor(
+    private readonly customizationService: CustomizationService,
+    private readonly entryService: EntryService,
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['attributes']) {
-      this.customizationService.initialize(changes['attributes'].currentValue);
+    if (changes['entry']) {
+      const attributes = changes['entry'].currentValue.attributes;
+      this.customizationService.initialize(attributes);
     }
   }
 
   updateAttribute(attributeId: number, newValue: string) {
+    if (!this.entry) return;
     this.customizationService.updateAttribute(attributeId, newValue);
+    this.entryService
+      .updateAttribute(this.entry.id, attributeId, newValue)
+      .subscribe();
   }
 }
