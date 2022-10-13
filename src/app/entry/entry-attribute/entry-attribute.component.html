@@ -1,14 +1,32 @@
 <ng-container *ngIf="attribute && attribute.type === 'color'">
-  <p>{{ attribute.name }}</p>
-  <p>{{ attribute.value }}</p>
-  <button (click)="update.emit('#ff0000')">Red</button>
-  <button (click)="update.emit('#00ff00')">Green</button>
-  <button (click)="update.emit('#0000ff')">Blue</button>
+  <h3>{{ attribute.name }}</h3>
+  <div class="options">
+    <button
+      *ngFor="let color of colors"
+      (click)="update.emit(color)"
+      class="color-button"
+      [class.color-active]="attribute.value === color"
+      [style.color]="color"
+    ></button>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="attribute && attribute.type === 'visible'">
-  <p>{{ attribute.name }}</p>
-  <p>{{ attribute.value }}</p>
-  <button (click)="update.emit('true')">Show</button>
-  <button (click)="update.emit('false')">Hide</button>
+  <h3>{{ attribute.name }}</h3>
+  <div class="options">
+    <button
+      (click)="update.emit('true')"
+      class="toggle-on"
+      [class.toggle-active]="attribute.value === 'true'"
+    >
+      On
+    </button>
+    <button
+      (click)="update.emit('false')"
+      class="toggle-off"
+      [class.toggle-active]="attribute.value === 'false'"
+    >
+      Off
+    </button>
+  </div>
 </ng-container>

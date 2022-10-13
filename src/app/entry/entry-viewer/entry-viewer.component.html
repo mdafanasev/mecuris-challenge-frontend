@@ -1,7 +1,4 @@
 <ng-container *ngIf="entry">
-  <p>{{ entry.name }}</p>
-  <p>{{ entry.createdAt | date }}</p>
-  <p>{{ entry.updatedAt | date }}</p>
   <div *ngIf="customizations | async as customizations" class="viewer">
     <mc-viewer [object]="object" [customizations]="customizations"></mc-viewer>
   </div>

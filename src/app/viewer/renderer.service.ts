@@ -40,17 +40,25 @@ export class RendererService {
   }
 
   private startRenderLoop(): void {
-    const render = () => {
-      this.tick();
+    const render = (time: number = 0) => {
+      this.tick(time);
       requestAnimationFrame(render);
     };
     render();
   }
 
-  private tick(): void {
+  private tick(time: number): void {
     const scene = this.scene.scene;
     const camera = this.camera.camera;
+    this.rotateCamera(time/1000);
     this.renderer.render(scene, camera);
+  }
+
+  private rotateCamera(value: number): void {
+    const x = Math.cos(value) * Math.PI * 5;
+    const y = 7;
+    const z = Math.sin(value) * Math.PI * 5;
+    this.camera.move(x, y, z);
   }
 
   private appendCanvas(): void {

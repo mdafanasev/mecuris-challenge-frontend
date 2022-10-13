@@ -1,9 +1,19 @@
+<div class="header">
+  <h1 class="title">Catalog</h1>
+</div>
+
 <ng-container *ngIf="items | async as items; else loading">
-  <div>
-    <button (click)="restoreAll()">Restore all items</button>
+  <div class="controls">
+    <div>Total: {{ items.length }}</div>
+    <button class="restore-button" (click)="restoreAll()">
+      Restore all items
+    </button>
   </div>
-  <div *ngFor="let item of items">
-    <mc-catalog-item [itemData]="item"></mc-catalog-item>
+
+  <div class="catalog">
+    <div *ngFor="let item of items" class="item">
+      <mc-catalog-item [itemData]="item"></mc-catalog-item>
+    </div>
   </div>
 </ng-container>
 

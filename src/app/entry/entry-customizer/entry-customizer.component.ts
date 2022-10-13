@@ -51,12 +51,4 @@ export class EntryCustomizerComponent implements OnChanges, OnDestroy {
       .pipe(takeUntil(this.destroy))
       .subscribe();
   }
-
-  removeEntry() {
-    if (!this.entry) return;
-    this.entryService
-      .removeEntry(this.entry.id)
-      .pipe(takeUntil(this.destroy))
-      .subscribe(() => this.remove.emit());
-  }
 }

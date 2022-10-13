@@ -1,3 +1,9 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .viewer {
   width: 500px;
   height: 500px;

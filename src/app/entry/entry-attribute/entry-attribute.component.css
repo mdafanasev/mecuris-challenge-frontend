@@ -1,0 +1,32 @@
+.options {
+  display: flex;
+}
+
+.color-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: none;
+  margin-right: 8px;
+  background-color: currentColor;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-on, .toggle-off {
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid #12ae91;
+  color: #12ae91;
+  border-radius: 5px 0 0 5px;
+  cursor: pointer;
+}
+
+.toggle-off {
+  border-radius: 0 5px 5px 0;
+}
+
+.toggle-active {
+  background-color: #12ae91;
+  color: #fff;
+}

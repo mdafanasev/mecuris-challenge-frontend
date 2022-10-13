@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: #12ae91;
+  color: #eee;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.back {
+  color: inherit;
+  text-decoration: none;
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-button {
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid #e43768;
+  color: #e43768;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: auto 320px;
+  grid-column-gap: 16px;
+  padding: 16px;
+}
+
+.viewer {
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.customizer {
+  padding: 16px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}

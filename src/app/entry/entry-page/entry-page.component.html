@@ -1,7 +1,22 @@
 <ng-container *ngIf="entry | async as entry">
-  <mc-entry-viewer [entry]="entry"></mc-entry-viewer>
-  <mc-entry-customizer
-    [entry]="entry"
-    (remove)="redirectToCatalog()"
-  ></mc-entry-customizer>
+  <div class="header">
+    <h1 class="title">{{ entry.name }}</h1>
+  </div>
+
+  <div class="controls">
+    <a class="back" routerLink="/catalog">Back to catalog</a>
+    <button class="remove-button" (click)="removeEntry(entry.id)">Remove</button>
+  </div>
+
+  <div class="content">
+    <div class="viewer">
+      <mc-entry-viewer [entry]="entry"></mc-entry-viewer>
+    </div>
+    <div class="customizer">
+      <mc-entry-customizer
+        [entry]="entry"
+        (remove)="redirectToCatalog()"
+      ></mc-entry-customizer>
+    </div>
+  </div>
 </ng-container>
