@@ -1,0 +1,24 @@
+:root {
+  --mc-font-base: 16px;
+  --mc-font-l: 20px;
+  --mc-font-xl: 24px;
+
+  --mc-radius: 5px;
+
+  --mc-color-accent: #12ae91;
+  --mc-color-danger:#e43768;
+  --mc-color-border: #aaaaaa;
+  --mc-color-fg-inverted: #eeeeee;
+
+  --mc-space-s: 8px;
+  --mc-space-m: 16px;
+  --mc-space-l: 24px;
+
+  --mc-card-width: 200px;
+  --mc-card-height: 250px;
+
+  --mc-sidebar-width: 320px;
+
+  --mc-viewer-width: 500px;
+  --mc-viewer-height: 500px;
+}

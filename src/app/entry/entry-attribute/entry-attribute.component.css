@@ -7,26 +7,27 @@
   height: 20px;
   border-radius: 10px;
   border: none;
-  margin-right: 8px;
+  margin-right: var(--mc-space-s);
   background-color: currentColor;
   cursor: pointer;
   position: relative;
 }
 
-.toggle-on, .toggle-off {
-  padding: 8px 16px;
+.toggle-on,
+.toggle-off {
+  padding: var(--mc-space-s) var(--mc-space-m);
   background: none;
-  border: 1px solid #12ae91;
-  color: #12ae91;
-  border-radius: 5px 0 0 5px;
+  border: 1px solid var(--mc-color-accent);
+  color: var(--mc-color-accent);
+  border-radius: var(--mc-radius) 0 0 var(--mc-radius);
   cursor: pointer;
 }
 
 .toggle-off {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 var(--mc-radius) var(--mc-radius) 0;
 }
 
 .toggle-active {
-  background-color: #12ae91;
-  color: #fff;
+  background-color: var(--mc-color-accent);
+  color: var(--mc-color-fg-inverted);
 }

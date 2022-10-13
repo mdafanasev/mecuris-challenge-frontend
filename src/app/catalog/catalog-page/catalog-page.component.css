@@ -2,34 +2,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
-  background-color: #12ae91;
-  color: #eee;
+  padding: var(--mc-space-m);
+  background-color: var(--mc-color-accent);
+  color: var(--mc-color-fg-inverted);
 }
 
 .controls {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px;
+  padding: var(--mc-space-m);
 }
 
 .title {
   margin: 0;
-  font-size: 24px;
+  font-size: var(--mc-font-l);
 }
 
 .restore-button {
-  padding: 8px 16px;
+  padding: var(--mc-space-s) var(--mc-space-m);
   background: none;
-  border: 1px solid #aaa;
-  border-radius: 5px;
+  border: 1px solid var(--mc-color-border);
+  border-radius: var(--mc-radius);
   cursor: pointer;
 }
 
 .catalog {
-  padding: 16px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-column-gap: 16px;
+  padding: var(--mc-space-m);
+  grid-template-columns: repeat(auto-fill, minmax(var(--mc-card-width), 1fr));
+  grid-column-gap: var(--mc-space-m);
 }
