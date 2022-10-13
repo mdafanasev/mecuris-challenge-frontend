@@ -2,7 +2,7 @@
   <p>{{ entry.name }}</p>
   <p>{{ entry.createdAt | date }}</p>
   <p>{{ entry.updatedAt | date }}</p>
-  <div class="viewer">
-    <mc-viewer [object]="object"></mc-viewer>
+  <div *ngIf="customizations | async as customizations" class="viewer">
+    <mc-viewer [object]="object" [customizations]="customizations"></mc-viewer>
   </div>
 </ng-container>

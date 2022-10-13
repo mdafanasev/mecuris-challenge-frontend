@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Viewer3DObject } from 'src/app/viewer/viewer.model';
+import { map } from 'rxjs';
+import { Customization, Viewer3DObject } from 'src/app/viewer/viewer.model';
+import { Attribute } from '../attribute.model';
+import { CustomizationService } from '../customization.service';
 import { Entry } from '../entry.model';
 
 @Component({
@@ -11,10 +14,26 @@ import { Entry } from '../entry.model';
 export class EntryViewerComponent {
   @Input() entryData: Entry | null = null;
 
+  customizations = this.customizationService.attributes.pipe(
+    map((attributes) => this.mapAttributesToCustomizations(attributes)),
+  );
+
   get object(): Viewer3DObject | null {
     if (!this.entryData) {
       return null;
     }
     return { objectUrl: this.entryData.modelUrl };
+  }
+
+  constructor(private readonly customizationService: CustomizationService) {}
+
+  private mapAttributesToCustomizations(
+    attributes: Attribute[],
+  ): Customization[] {
+    return attributes.map((attr) => ({
+      type: attr.type,
+      target: attr.target,
+      value: attr.value,
+    }));
   }
 }

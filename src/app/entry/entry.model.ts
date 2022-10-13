@@ -1,3 +1,5 @@
+import { Attribute } from './attribute.model'
+
 export interface Entry {
   id: number;
   name: string;
@@ -5,4 +7,5 @@ export interface Entry {
   previewUrl: string;
   createdAt: Date;
   updatedAt: Date;
+  attributes: Attribute[];
 }

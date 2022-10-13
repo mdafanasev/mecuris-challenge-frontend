@@ -1,0 +1,14 @@
+<ng-container *ngIf="attribute && attribute.type === 'color'">
+  <p>{{ attribute.name }}</p>
+  <p>{{ attribute.value }}</p>
+  <button (click)="update.emit('#ff0000')">Red</button>
+  <button (click)="update.emit('#00ff00')">Green</button>
+  <button (click)="update.emit('#0000ff')">Blue</button>
+</ng-container>
+
+<ng-container *ngIf="attribute && attribute.type === 'visible'">
+  <p>{{ attribute.name }}</p>
+  <p>{{ attribute.value }}</p>
+  <button (click)="update.emit('true')">Show</button>
+  <button (click)="update.emit('false')">Hide</button>
+</ng-container>

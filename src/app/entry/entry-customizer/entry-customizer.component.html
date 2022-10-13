@@ -1,0 +1,5 @@
+<mc-entry-attribute
+  *ngFor="let attr of attributes"
+  [attribute]="attr"
+  (update)="updateAttribute(attr.id, $event)"
+></mc-entry-attribute>
