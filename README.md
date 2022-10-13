@@ -4,6 +4,10 @@ Front-end part for Mercuris challenge
 
 Back-end part is [here](https://github.com/mdafanasev/mecuris-challenge-backend)
 
+## Preview
+
+[http://mecuris-challenge.afsv.me/](http://mecuris-challenge.afsv.me/)
+
 ## Description of the challenge
 
 Implement a simple configurator application that retrieves a configuration data from the server and
@@ -64,14 +68,14 @@ Routed module for the list of entries. Key possibilities:
 
 - Load all entries and show the list
 - Select entry (by redirecting to the `entry` module)
-- Restore all removed entries
+- Restore all removed entries (for testing purposes)
 
 ### Entry
 
 Routed module for the entry. Key possibilities:
 
 - Load entry data and 3D model
-- Show 3D model
+- Show 3D model (using `Viewer` module)
 - Load attributes data
 - Customize the entry by changing attributes value
 - Remove the entry
@@ -99,4 +103,4 @@ Reusable module for rendering the 3D model with customizations.
 - Previews in the catalog are static PNG. If something changes in the entry, preview should be updated.
 The are to options: render preview in the server (may be using browser) or capture canvas bitmap from the client and send it to the server
 - Make possible to upload glTF models and bind attributes to meshes from the UI. Now the binding should be done manually in the DB
-- UI can be better :)
+- Improve mobile UI
